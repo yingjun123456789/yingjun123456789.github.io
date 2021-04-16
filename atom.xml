@@ -2,13 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yingjun123456789.github.io</id>
     <title>摆渡人Blog</title>
-    <updated>2021-04-16T15:09:34.492Z</updated>
+    <updated>2021-04-16T15:11:50.920Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yingjun123456789.github.io"/>
     <link rel="self" href="https://yingjun123456789.github.io/atom.xml"/>
     <logo>https://yingjun123456789.github.io/images/avatar.png</logo>
     <icon>https://yingjun123456789.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 摆渡人Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[安装Docker]]></title>
+        <id>https://yingjun123456789.github.io/post/an-zhuang-docker/</id>
+        <link href="https://yingjun123456789.github.io/post/an-zhuang-docker/">
+        </link>
+        <updated>2021-04-16T15:11:21.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1-yum-包更新到最新">1、yum 包更新到最新</h1>
+<p>yum update</p>
+<h1 id="2-安装需要的软件包-yum-util-提供yum-config-manager功能另外两个是devicemapper驱动依赖的">2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</h1>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+<h1 id="3-设置yum源">3、 设置yum源</h1>
+<p>yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</p>
+<h1 id="4-安装docker出现输入的界面都按-y">4、 安装docker，出现输入的界面都按 y</h1>
+<p>yum install -y docker-ce</p>
+<h1 id="5-查看docker版本验证是否验证成功">5、 查看docker版本，验证是否验证成功</h1>
+<p>docker -v</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mybatis]]></title>
         <id>https://yingjun123456789.github.io/post/mybatis/</id>
