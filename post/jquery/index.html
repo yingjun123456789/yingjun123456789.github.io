@@ -1,0 +1,513 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>JQuery | 摆渡人Blog</title>
+
+<link rel="shortcut icon" href="https://yingjun123456789.github.io/favicon.ico?v=1618586137992">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yingjun123456789.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<style>
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <style>
+    /* 导航栏样式 */
+    .navbar {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-brand {
+        display: inline-block;
+        padding-top: 0.3125rem;
+        padding-bottom: 0.3125rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+    }
+
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+        text-decoration: none;
+    }
+
+    .navbar-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    .navbar-collapse {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .navbar-toggler:hover,
+    .navbar-toggler:focus {
+        text-decoration: none;
+    }
+
+    @media (min-width: 992px) {
+        .navbar-expand-lg {
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+
+        .navbar-expand-lg .navbar-nav {
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -ms-flex-preferred-size: auto;
+            flex-basis: auto;
+        }
+
+        .navbar-expand-lg .navbar-toggler {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991px) {
+        #navbarSupportedContent {
+            display: none;
+        }
+    }
+</style>
+<nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            摆渡人Blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1618586137992"
+                action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = function () {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    JQuery
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-04-16 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="今日内容">今日内容：</h2>
+<pre><code>1. JQuery 高级
+	1. 动画
+	2. 遍历
+	3. 事件绑定
+	4. 案例
+	5. 插件
+</code></pre>
+<h2 id="jquery-高级">JQuery 高级</h2>
+<pre><code>1. 动画
+	1. 三种方式显示和隐藏元素
+		1. 默认显示和隐藏方式
+			1. show([speed,[easing],[fn]])
+				1. 参数：
+					1. speed：动画的速度。三个预定义的值(&quot;slow&quot;,&quot;normal&quot;, &quot;fast&quot;)或表示动画时长的毫秒数值(如：1000)
+					2. easing：用来指定切换效果，默认是&quot;swing&quot;，可用参数&quot;linear&quot;
+						* swing：动画执行时效果是 先慢，中间快，最后又慢
+						* linear：动画执行时速度是匀速的
+					3. fn：在动画完成时执行的函数，每个元素执行一次。
+
+			2. hide([speed,[easing],[fn]])
+			3. toggle([speed],[easing],[fn])
+		
+		2. 滑动显示和隐藏方式
+			1. slideDown([speed],[easing],[fn])
+			2. slideUp([speed,[easing],[fn]])
+			3. slideToggle([speed],[easing],[fn])
+
+		3. 淡入淡出显示和隐藏方式
+			1. fadeIn([speed],[easing],[fn])
+			2. fadeOut([speed],[easing],[fn])
+			3. fadeToggle([speed,[easing],[fn]])
+
+2. 遍历
+	1. js的遍历方式
+		* for(初始化值;循环结束条件;步长)
+	2. jq的遍历方式
+		1. jq对象.each(callback)
+			1. 语法：
+				jquery对象.each(function(index,element){});
+					* index:就是元素在集合中的索引
+					* element：就是集合中的每一个元素对象
+
+					* this：集合中的每一个元素对象
+			2. 回调函数返回值：
+				* true:如果当前function返回为false，则结束循环(break)。
+				* false:如果当前function返回为true，则结束本次循环，继续下次循环(continue)
+		2. $.each(object, [callback])
+		3. for..of: jquery 3.0 版本之后提供的方式
+			for(元素对象 of 容器对象)
+	
+3. 事件绑定
+	1. jquery标准的绑定方式
+		* jq对象.事件方法(回调函数)；
+		* 注：如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
+			* 表单对象.submit();//让表单提交
+	2. on绑定事件/off解除绑定
+		* jq对象.on(&quot;事件名称&quot;,回调函数)
+		* jq对象.off(&quot;事件名称&quot;)
+			* 如果off方法不传递任何参数，则将组件上的所有事件全部解绑
+	3. 事件切换：toggle
+		* jq对象.toggle(fn1,fn2...)
+			* 当单击jq对象对应的组件后，会执行fn1.第二次点击会执行fn2.....
+			
+		* 注意：1.9版本 .toggle() 方法删除,jQuery Migrate（迁移）插件可以恢复此功能。
+			 &lt;script src=&quot;../js/jquery-migrate-1.0.0.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+4. 案例
+	1. 广告显示和隐藏
+		&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+		&lt;head&gt;
+		    &lt;meta charset=&quot;UTF-8&quot;&gt;
+		    &lt;title&gt;广告的自动显示与隐藏&lt;/title&gt;
+		    &lt;style&gt;
+		        #content{width:100%;height:500px;background:#999}
+		    &lt;/style&gt;
+		
+		    &lt;!--引入jquery--&gt;
+		    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+		    &lt;script&gt;
+		        /*
+		            需求：
+		                1. 当页面加载完，3秒后。自动显示广告
+		                2. 广告显示5秒后，自动消失。
+		
+		            分析：
+		                1. 使用定时器来完成。setTimeout (执行一次定时器)
+		                2. 分析发现JQuery的显示和隐藏动画效果其实就是控制display
+		                3. 使用  show/hide方法来完成广告的显示
+		         */
+		
+		        //入口函数，在页面加载完成之后，定义定时器，调用这两个方法
+		        $(function () {
+		           //定义定时器，调用adShow方法 3秒后执行一次
+		           setTimeout(adShow,3000);
+		           //定义定时器，调用adHide方法，8秒后执行一次
+		            setTimeout(adHide,8000);
+		        });
+		        //显示广告
+		        function adShow() {
+		            //获取广告div，调用显示方法
+		            $(&quot;#ad&quot;).show(&quot;slow&quot;);
+		        }
+		        //隐藏广告
+		        function adHide() {
+		            //获取广告div，调用隐藏方法
+		            $(&quot;#ad&quot;).hide(&quot;slow&quot;);
+		        }
+</code></pre>
+<p>​			<br>
+​			    </script><br>
+​			</head><br>
+​			<body><br>
+​			<!-- 整体的DIV --><br>
+​			<div><br>
+​			    <!-- 广告DIV --><br>
+​			    <div id="ad" style="display: none;"><br>
+​			        <img style="width:100%" src="../img/adv.jpg" /><br>
+​			    </div><br>
+​</p>
+<pre><code>		    &lt;!-- 下方正文部分 --&gt;
+		    &lt;div id=&quot;content&quot;&gt;
+		        正文部分
+		    &lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/body&gt;
+		&lt;/html&gt;
+
+
+	2. 抽奖
+		&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+		&lt;head&gt;
+		    &lt;meta charset=&quot;UTF-8&quot;&gt;
+		    &lt;title&gt;jquery案例之抽奖&lt;/title&gt;
+		    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+		
+		    &lt;script language='javascript' type='text/javascript'&gt;
+		
+		        /*
+		            分析：
+		                1. 给开始按钮绑定单击事件
+		                    1.1 定义循环定时器
+		                    1.2 切换小相框的src属性
+		                        * 定义数组，存放图片资源路径
+		                        * 生成随机数。数组索引
+
+
+		                2. 给结束按钮绑定单击事件
+		                    1.1 停止定时器
+		                    1.2 给大相框设置src属性
+		
+		         */
+		        var imgs = [&quot;../img/man00.jpg&quot;,
+		                    &quot;../img/man01.jpg&quot;,
+		                    &quot;../img/man02.jpg&quot;,
+		                    &quot;../img/man03.jpg&quot;,
+		                    &quot;../img/man04.jpg&quot;,
+		                    &quot;../img/man05.jpg&quot;,
+		                    &quot;../img/man06.jpg&quot;,
+		                    ];
+		        var startId;//开始定时器的id
+		        var index;//随机角标
+		        $(function () {
+		            //处理按钮是否可以使用的效果
+		            $(&quot;#startID&quot;).prop(&quot;disabled&quot;,false);
+		            $(&quot;#stopID&quot;).prop(&quot;disabled&quot;,true);
+
+
+		           //1. 给开始按钮绑定单击事件
+		            $(&quot;#startID&quot;).click(function () {
+		                // 1.1 定义循环定时器 20毫秒执行一次
+		                startId = setInterval(function () {
+		                    //处理按钮是否可以使用的效果
+		                    $(&quot;#startID&quot;).prop(&quot;disabled&quot;,true);
+		                    $(&quot;#stopID&quot;).prop(&quot;disabled&quot;,false);
+
+
+		                    //1.2生成随机角标 0-6
+		                    index = Math.floor(Math.random() * 7);//0.000--0.999 --&gt; * 7 --&gt; 0.0-----6.9999
+		                    //1.3设置小相框的src属性
+		                    $(&quot;#img1ID&quot;).prop(&quot;src&quot;,imgs[index]);
+		
+		                },20);
+		            });
+
+
+		            //2. 给结束按钮绑定单击事件
+		            $(&quot;#stopID&quot;).click(function () {
+		                //处理按钮是否可以使用的效果
+		                $(&quot;#startID&quot;).prop(&quot;disabled&quot;,false);
+		                $(&quot;#stopID&quot;).prop(&quot;disabled&quot;,true);
+
+
+		               // 1.1 停止定时器
+		                clearInterval(startId);
+		               // 1.2 给大相框设置src属性
+		                $(&quot;#img2ID&quot;).prop(&quot;src&quot;,imgs[index]).hide();
+		                //显示1秒之后
+		                $(&quot;#img2ID&quot;).show(1000);
+		            });
+		        });
+</code></pre>
+<p>​			<br>
+​			<br>
+​			    </script><br>
+​</p>
+<pre><code>		&lt;/head&gt;
+		&lt;body&gt;
+		
+		&lt;!-- 小像框 --&gt;
+		&lt;div style=&quot;border-style:dotted;width:160px;height:100px&quot;&gt;
+		    &lt;img id=&quot;img1ID&quot; src=&quot;../img/man00.jpg&quot; style=&quot;width:160px;height:100px&quot;/&gt;
+		&lt;/div&gt;
+		
+		&lt;!-- 大像框 --&gt;
+		&lt;div
+		        style=&quot;border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px&quot;&gt;
+		    &lt;img id=&quot;img2ID&quot; src=&quot;../img/man00.jpg&quot; width=&quot;800px&quot; height=&quot;500px&quot;/&gt;
+		&lt;/div&gt;
+		
+		&lt;!-- 开始按钮 --&gt;
+		&lt;input
+		        id=&quot;startID&quot;
+		        type=&quot;button&quot;
+		        value=&quot;点击开始&quot;
+		        style=&quot;width:150px;height:150px;font-size:22px&quot;&gt;
+		
+		&lt;!-- 停止按钮 --&gt;
+		&lt;input
+		        id=&quot;stopID&quot;
+		        type=&quot;button&quot;
+		        value=&quot;点击停止&quot;
+		        style=&quot;width:150px;height:150px;font-size:22px&quot;&gt;
+
+
+		&lt;/body&gt;
+		&lt;/html&gt;
+
+5. 插件：增强JQuery的功能
+	1. 实现方式：
+		1. $.fn.extend(object) 
+			* 增强通过Jquery获取的对象的功能  $(&quot;#id&quot;)
+		2. $.extend(object)
+			* 增强JQeury对象自身的功能  $/jQuery</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yingjun123456789.github.io/post/an-zhuang-docker/" class="post-title gt-a-link">
+                    安装Docker
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first"></div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yingjun123456789.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
